@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
-import { Upload, FileText, Sparkles, Rocket } from "lucide-react"
+import { Upload, FileText, Sparkles, Rocket } from 'lucide-react'
 import { supabase } from "@/lib/supabase/client"
 import { uploadGameImage } from "@/lib/image-upload"
 import { useRouter } from "next/navigation"
@@ -76,7 +76,7 @@ export default function GameUploadForm() {
             description,
             html_content: htmlContent,
             image_url: finalImageUrl,
-            user_id: "anonymous", // For now, we'll use anonymous. Later we can add auth
+            user_id: null, // Allow anonymous games
           },
         ])
         .select()

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Play, Calendar, User, ImageIcon, Sparkles } from "lucide-react"
+import { Play, Calendar, User, ImageIcon, Sparkles, ExternalLink } from "lucide-react"
 import { supabase } from "@/lib/supabase/client"
 import Link from "next/link"
 
@@ -158,15 +158,28 @@ export default function GamesGrid() {
               </Badge>
             </div>
 
-            <Link href={`/game/${game.id}`}>
-              <Button
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform group-hover:scale-105 transition-all duration-300 text-white border-0 shadow-lg hover:shadow-xl"
-                size="sm"
-              >
-                <Play className="h-4 w-4 mr-2 fill-current" />
-                Jogar Agora
-              </Button>
-            </Link>
+            <div className="space-y-2">
+              <Link href={`/game/${game.id}`}>
+                <Button
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform group-hover:scale-105 transition-all duration-300 text-white border-0 shadow-lg hover:shadow-xl"
+                  size="sm"
+                >
+                  <Play className="h-4 w-4 mr-2 fill-current" />
+                  Jogar Agora
+                </Button>
+              </Link>
+
+              <Link href={`/game/${game.id}`} target="_blank">
+                <Button
+                  variant="outline"
+                  className="w-full border-2 border-blue-300 dark:border-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transform group-hover:scale-105 transition-all duration-300 bg-transparent"
+                  size="sm"
+                >
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  Abrir em Nova Aba
+                </Button>
+              </Link>
+            </div>
           </CardContent>
         </Card>
       ))}

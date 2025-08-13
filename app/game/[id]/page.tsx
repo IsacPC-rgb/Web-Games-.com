@@ -1,7 +1,6 @@
 import { createServerClient } from "@/lib/supabase/server"
 import { notFound } from "next/navigation"
-import GameViewer from "@/components/game-viewer"
-import Header from "@/components/header"
+import GameTabManager from "@/components/game-tab-manager"
 
 interface GamePageProps {
   params: {
@@ -18,12 +17,7 @@ export default async function GamePage({ params }: GamePageProps) {
     notFound()
   }
 
-  return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
-      <Header />
-      <GameViewer game={game} />
-    </div>
-  )
+  return <GameTabManager initialGame={game} />
 }
 
 export async function generateMetadata({ params }: GamePageProps) {
